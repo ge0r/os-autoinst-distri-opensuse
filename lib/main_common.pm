@@ -1758,6 +1758,7 @@ sub load_x11_webbrowser_extra {
     loadtest "x11/firefox/firefox_ssl";
     loadtest "x11/firefox/firefox_emaillink";
     loadtest "x11/firefox/firefox_plugins";
+    loadtest "console/ca_certificates_mozilla";
     loadtest "x11/firefox/firefox_java";
     loadtest "x11/firefox/firefox_extcontent";
     loadtest "x11/firefox/firefox_gnomeshell";
