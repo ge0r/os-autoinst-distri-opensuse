@@ -82,6 +82,7 @@ sub verify_multipath_topology {
     # Check general topology info
     my $topology    = $test_data->{topology};
     my $ven_pro_rev = $topology->{vendor_product_revision};
+    $wwid = "36005076307ffd3b30000000000000150";
     assert_matches(qr/$wwid dm-0 $ven_pro_rev/, $topology_output,
         'General topology info are not displayed properly');
 
