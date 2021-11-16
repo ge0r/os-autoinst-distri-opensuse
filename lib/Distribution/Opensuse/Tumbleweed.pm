@@ -14,6 +14,12 @@ use warnings FATAL => 'all';
 use parent 'susedistribution';
 use Installation::AuthenticationForRoot::AuthenticationForRootController;
 use Installation::ClockAndTimeZone::ClockAndTimeZoneController;
+<<<< <<< HEAD
+=======
+use Installation::DiskActivation::DiskActivationController;
+use Installation::DiskActivation::ConfiguredZFCPDevicesController;
+use Installation::DiskActivation::AddZFCPDeviceController;
+>>>>>>> f63b033a6... configuredzfcpdevs
 use Installation::LanguageKeyboard::LanguageKeyboardController;
 use Installation::License::Opensuse::Firstboot::LicenseAgreementController;
 use Installation::License::Opensuse::LicenseAgreementController;
@@ -47,7 +53,7 @@ sub get_language_keyboard {
     return Installation::LanguageKeyboard::LanguageKeyboardController->new();
 }
 
-sub get_partitioner {
+  sub get_partitioner {
     return Installation::Partitioner::LibstorageNG::GuidedSetupController->new();
 }
 
@@ -163,5 +169,16 @@ sub get_encrypted_volume_activation {
     return Installation::SystemProbing::EncryptedVolumeActivationController->new();
 }
 
+sub get_disk_activation_selector {
+    return Installation::DiskActivation::DiskActivationController->new();
+}
+
+sub get_zfcp_configuration_overview {
+    return Installation::DiskActivation::ConfiguredZFCPDevicesController->new();
+}
+
+sub get_zfcp_add_disk {
+    return Installation::DiskActivation::AddZFCPDeviceController->new();
+}
 
 1;
