@@ -20,7 +20,7 @@ schedule:
   - installation/access_beta_distribution
   - installation/product_selection/install_SLES
   - installation/licensing/accept_license
-  - installation/disk_activation
+  - installation/configure_dasd
   - installation/registration/skip_registration
   - installation/addon_products_sle
   - installation/system_role/accept_selected_role_SLES_with_GNOME

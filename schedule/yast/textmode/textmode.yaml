@@ -44,7 +44,7 @@ conditional_schedule:
   disk_activation:
     BACKEND:
       s390x:
-        - installation/disk_activation
+        - installation/configure_dasd
 test_data:
   software:
     patterns:
