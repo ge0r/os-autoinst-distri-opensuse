@@ -12,6 +12,7 @@
 use base 'y2_installbase';
 use strict;
 use warnings;
+use testapi;
 use scheduler 'get_test_suite_data';
 use utils 'arrays_differ';
 
@@ -24,6 +25,7 @@ sub run {
       if arrays_differ(\@expected_modules, \@modules);
     my @expected_registered_modules = @{get_test_suite_data()->{registered_modules}};
     my @registered_modules = @{$testapi::distri->get_module_registration()->get_registered_modules()};
+    record_info("MODs", join(', ', @registered_modules));
     die "Selected modules are not the default ones"
       . "\nExpected:\n" . join(', ', @expected_registered_modules)
       . "\nActual:\n" . join(', ', @registered_modules)
