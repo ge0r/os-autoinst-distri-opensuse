@@ -14,7 +14,6 @@ vars:
 schedule:
   - installation/bootloader_start
   - boot/boot_to_desktop
-  - console/prepare_test_data
   - console/consoletest_setup
   - console/hostname
   - "{{yast2_modules}}"
