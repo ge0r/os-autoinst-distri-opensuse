@@ -27,6 +27,7 @@ our @EXPORT = qw(is_network_manager_default
   accept_warning_network_manager_default
   with_yast_env_variables
   wait_for_exit
+  assert_screen_workaround
 );
 
 =head2 with_yast_env_variables
@@ -101,6 +102,16 @@ sub wait_for_exit {
     $args{timeout} //= 60;
     wait_serial("yast2-$args{module}-status-0", timeout => $args{timeout}) ||
       die "Fail! yast2 $args{module} is not closed or non-zero code returned.";
+}
+
+sub assert_screen_workaround {
+    record_info('WORKAROUND');
+    sleep(10);
+    save_screenshot;
+    send_key 'tab' for (1 .. 10);
+    save_screenshot;
+    record_info('END');
+    return assert_screen(@_);
 }
 
 sub post_fail_hook {
