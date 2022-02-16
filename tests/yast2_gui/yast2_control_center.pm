@@ -16,6 +16,7 @@ use strict;
 use warnings;
 use testapi;
 use utils;
+use y2_module_basetest qw(assert_screen_workaround);
 use version_utils qw(is_opensuse is_sle is_leap is_tumbleweed is_storage_ng);
 
 sub search {
@@ -278,7 +279,7 @@ sub start_wake_on_lan {
     assert_and_click 'yast2_control-center_wake-on-lan';
     assert_screen 'yast2_control-center_wake-on-lan_install_wol';
     send_key $cmd{install};    # wol needs to be installed
-    assert_screen 'yast2_control-center_wake-on-lan_overview', timeout => 60;
+    assert_screen_workaround 'yast2_control-center_wake-on-lan_overview', timeout => 60;
     send_key 'alt-f';
     assert_screen 'yast2-control-center-ui', timeout => 60;
 }
