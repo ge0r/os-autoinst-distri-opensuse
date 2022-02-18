@@ -106,8 +106,11 @@ sub wait_for_exit {
 
 sub assert_screen_workaround {
     record_info('WORKAROUND');
+    sleep(10);
     save_screenshot;
-    send_key 'tab' for (1 .. 10);
+    send_key 'alt-f10';
+    save_screenshot;
+    send_key 'alt-f10';
     save_screenshot;
     record_info('END');
     return assert_screen(@_);
