@@ -101,16 +101,16 @@ sub prepare_parmfile {
 
     # Pass autoyast parameter for s390x, shorten the url because of 72 columns limit in x3270 xedit
     # If 'AUTOYAST_PREPARE_PROFILE' is true, shorten url directly, otherwise shorten url with data_url method
-    if (get_var('AUTOYAST')) {
-        if (get_var('AUTOYAST_PREPARE_PROFILE')) {
-            $params .= " autoyast=" . shorten_url(get_var('AUTOYAST'));
-            set_var('AUTOYAST', shorten_url(get_var('AUTOYAST')));
-        }
-        else {
-            $params .= " autoyast=" . shorten_url(data_url(get_var('AUTOYAST')));
-            set_var('AUTOYAST', shorten_url(data_url(get_var('AUTOYAST'))));
-        }
-    }
+    # if (get_var('AUTOYAST')) {
+    #     if (get_var('AUTOYAST_PREPARE_PROFILE')) {
+    #         $params .= " autoyast=" . shorten_url(get_var('AUTOYAST'));
+    #         set_var('AUTOYAST', shorten_url(get_var('AUTOYAST')));
+    #     }
+    #     else {
+    #         $params .= " autoyast=" . shorten_url(data_url(get_var('AUTOYAST')));
+    #         set_var('AUTOYAST', shorten_url(data_url(get_var('AUTOYAST'))));
+    #     }
+    # }
     return split_lines($params);
 }
 
@@ -309,20 +309,21 @@ sub run {
     format_dasd if (check_var('FORMAT_DASD', 'pre_install'));
     create_encrypted_part_dasd if get_var('ENCRYPT_ACTIVATE_EXISTING');
 
-    select_console("installation");
+    record_info("BEFORE");
+    # select_console("installation");
 
-    # We have textmode installation via ssh and the default vnc installation so far
-    if (check_var('VIDEOMODE', 'text') || check_var('VIDEOMODE', 'ssh-x')) {
-        # If libyui REST API is used, we set it up in installation/setup_libyui
-        unless (get_var('YUI_REST_API')) {
-            # Workaround for bsc#1142040
-            # enter_cmd("yast.ssh");
-            enter_cmd("QT_XCB_GL_INTEGRATION=none yast.ssh") && record_soft_failure('bsc#1142040');
-        }
-    }
-    wait_still_screen;
+    # # We have textmode installation via ssh and the default vnc installation so far
+    # if (check_var('VIDEOMODE', 'text') || check_var('VIDEOMODE', 'ssh-x')) {
+    #     # If libyui REST API is used, we set it up in installation/setup_libyui
+    #     unless (get_var('YUI_REST_API')) {
+    #         # Workaround for bsc#1142040
+    #         # enter_cmd("yast.ssh");
+    #         enter_cmd("QT_XCB_GL_INTEGRATION=none yast.ssh") && record_soft_failure('bsc#1142040');
+    #     }
+    # }
+    # wait_still_screen;
 
-    $self->result('ok');
+    # $self->result('ok');
 }
 
 sub post_fail_hook {
