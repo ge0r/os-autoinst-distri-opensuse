@@ -27,11 +27,6 @@
         <product>SLE-Module-Server-Applications15-SP4-Pool</product>
         <product_dir/>
       </listentry>
-      <listentry t="map">
-        <media_url>http://openqa.suse.de/assets/repo/SLE-15-SP4-Module-Development-Tools-POOL-s390x-Build101.1-Media1/</media_url>
-        <product>SLE-Module-DevTools15-SP4-Pool</product>
-        <product_dir/>
-      </listentry>
     </add_on_products>
   </add-on>
   <bootloader t="map">
@@ -95,13 +90,6 @@
     </devices>
     <format_unformatted t="boolean">false</format_unformatted>
   </dasd>
-  <firewall t="map">
-    <default_zone>public</default_zone>
-    <enable_firewall t="boolean">true</enable_firewall>
-    <log_denied_packets>off</log_denied_packets>
-    <start_firewall t="boolean">true</start_firewall>
-    <zones t="list"/>
-  </firewall>
   <general t="map">
     <cio_ignore t="boolean">true</cio_ignore>
     <mode t="map">
@@ -115,28 +103,133 @@
       <userlist/>
     </group>
     <group t="map">
+      <gid>15</gid>
+      <groupname>shadow</groupname>
+      <userlist>vnc</userlist>
+    </group>
+    <group t="map">
+      <gid>1</gid>
+      <groupname>bin</groupname>
+      <userlist>daemon</userlist>
+    </group>
+    <group t="map">
+      <gid>496</gid>
+      <groupname>kmem</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>474</gid>
+      <groupname>nscd</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>5</gid>
+      <groupname>tty</groupname>
+      <userlist>brltty</userlist>
+    </group>
+    <group t="map">
+      <gid>36</gid>
+      <groupname>kvm</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>62</gid>
+      <groupname>man</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>488</gid>
+      <groupname>lp</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>478</gid>
+      <groupname>chrony</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>487</gid>
+      <groupname>render</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>71</gid>
+      <groupname>ntadmin</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>42</gid>
+      <groupname>trusted</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>498</gid>
+      <groupname>mail</groupname>
+      <userlist>postfix</userlist>
+    </group>
+    <group t="map">
+      <gid>59</gid>
+      <groupname>maildrop</groupname>
+      <userlist>postfix</userlist>
+    </group>
+    <group t="map">
       <gid>499</gid>
       <groupname>messagebus</groupname>
       <userlist/>
     </group>
     <group t="map">
-      <gid>465</gid>
-      <groupname>systemd-coredump</groupname>
+      <gid>468</gid>
+      <groupname>vnc</groupname>
       <userlist/>
     </group>
     <group t="map">
-      <gid>489</gid>
-      <groupname>input</groupname>
+      <gid>494</gid>
+      <groupname>utmp</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>480</gid>
+      <groupname>pulse-access</groupname>
       <userlist>brltty</userlist>
     </group>
     <group t="map">
-      <gid>491</gid>
-      <groupname>dialout</groupname>
+      <gid>0</gid>
+      <groupname>root</groupname>
       <userlist>brltty</userlist>
+    </group>
+    <group t="map">
+      <gid>486</gid>
+      <groupname>sgx</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>476</gid>
+      <groupname>zkeyadm</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>492</gid>
+      <groupname>cdrom</groupname>
+      <userlist/>
     </group>
     <group t="map">
       <gid>2</gid>
       <groupname>daemon</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>472</gid>
+      <groupname>sshd</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>471</gid>
+      <groupname>brlapi</groupname>
+      <userlist>brltty</userlist>
+    </group>
+    <group t="map">
+      <gid>483</gid>
+      <groupname>audit</groupname>
       <userlist/>
     </group>
     <group t="map">
@@ -145,8 +238,18 @@
       <userlist>pulse,brltty</userlist>
     </group>
     <group t="map">
-      <gid>476</gid>
-      <groupname>zkeyadm</groupname>
+      <gid>489</gid>
+      <groupname>input</groupname>
+      <userlist>brltty</userlist>
+    </group>
+    <group t="map">
+      <gid>65534</gid>
+      <groupname>nobody</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>465</gid>
+      <groupname>systemd-coredump</groupname>
       <userlist/>
     </group>
     <group t="map">
@@ -160,43 +263,8 @@
       <userlist/>
     </group>
     <group t="map">
-      <gid>496</gid>
-      <groupname>kmem</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>479</gid>
-      <groupname>pulse</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>71</gid>
-      <groupname>ntadmin</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>495</gid>
-      <groupname>lock</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>5</gid>
-      <groupname>tty</groupname>
-      <userlist>brltty</userlist>
-    </group>
-    <group t="map">
-      <gid>1</gid>
-      <groupname>bin</groupname>
-      <userlist>daemon</userlist>
-    </group>
-    <group t="map">
-      <gid>487</gid>
-      <groupname>render</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>36</gid>
-      <groupname>kvm</groupname>
+      <gid>497</gid>
+      <groupname>wheel</groupname>
       <userlist/>
     </group>
     <group t="map">
@@ -205,108 +273,8 @@
       <userlist/>
     </group>
     <group t="map">
-      <gid>472</gid>
-      <groupname>sshd</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>484</gid>
-      <groupname>video</groupname>
-      <userlist>gdm</userlist>
-    </group>
-    <group t="map">
-      <gid>468</gid>
-      <groupname>vnc</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>0</gid>
-      <groupname>root</groupname>
-      <userlist>brltty</userlist>
-    </group>
-    <group t="map">
       <gid>469</gid>
       <groupname>gdm</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>42</gid>
-      <groupname>trusted</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>492</gid>
-      <groupname>cdrom</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>497</gid>
-      <groupname>wheel</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>62</gid>
-      <groupname>man</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>471</gid>
-      <groupname>brlapi</groupname>
-      <userlist>brltty</userlist>
-    </group>
-    <group t="map">
-      <gid>65534</gid>
-      <groupname>nobody</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>482</gid>
-      <groupname>srvGeoClue</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>478</gid>
-      <groupname>chrony</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>59</gid>
-      <groupname>maildrop</groupname>
-      <userlist>postfix</userlist>
-    </group>
-    <group t="map">
-      <gid>477</gid>
-      <groupname>ts-shell</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>15</gid>
-      <groupname>shadow</groupname>
-      <userlist>vnc</userlist>
-    </group>
-    <group t="map">
-      <gid>466</gid>
-      <groupname>brltty</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>480</gid>
-      <groupname>pulse-access</groupname>
-      <userlist>brltty</userlist>
-    </group>
-    <group t="map">
-      <gid>488</gid>
-      <groupname>lp</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>475</gid>
-      <groupname>cpacfstats</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>470</gid>
-      <groupname>rtkit</groupname>
       <userlist/>
     </group>
     <group t="map">
@@ -315,23 +283,53 @@
       <userlist/>
     </group>
     <group t="map">
+      <gid>466</gid>
+      <groupname>brltty</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>491</gid>
+      <groupname>dialout</groupname>
+      <userlist>brltty</userlist>
+    </group>
+    <group t="map">
+      <gid>490</gid>
+      <groupname>disk</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>477</gid>
+      <groupname>ts-shell</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>470</gid>
+      <groupname>rtkit</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>479</gid>
+      <groupname>pulse</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
+      <gid>495</gid>
+      <groupname>lock</groupname>
+      <userlist/>
+    </group>
+    <group t="map">
       <gid>464</gid>
       <groupname>systemd-timesync</groupname>
       <userlist/>
     </group>
     <group t="map">
-      <gid>498</gid>
-      <groupname>mail</groupname>
-      <userlist>postfix</userlist>
-    </group>
-    <group t="map">
-      <gid>65533</gid>
-      <groupname>nogroup</groupname>
+      <gid>475</gid>
+      <groupname>cpacfstats</groupname>
       <userlist/>
     </group>
     <group t="map">
-      <gid>490</gid>
-      <groupname>disk</groupname>
+      <gid>482</gid>
+      <groupname>srvGeoClue</groupname>
       <userlist/>
     </group>
     <group t="map">
@@ -340,32 +338,22 @@
       <userlist/>
     </group>
     <group t="map">
-      <gid>494</gid>
-      <groupname>utmp</groupname>
+      <gid>65533</gid>
+      <groupname>nogroup</groupname>
       <userlist/>
     </group>
     <group t="map">
-      <gid>474</gid>
-      <groupname>nscd</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>486</gid>
-      <groupname>sgx</groupname>
-      <userlist/>
-    </group>
-    <group t="map">
-      <gid>483</gid>
-      <groupname>audit</groupname>
-      <userlist/>
+      <gid>484</gid>
+      <groupname>video</groupname>
+      <userlist>gdm</userlist>
     </group>
   </groups>
   <host t="map">
     <hosts t="list">
       <hosts_entry t="map">
-        <host_address>10.162.42.103</host_address>
+        <host_address>10.162.42.104</host_address>
         <names t="list">
-          <name>s390qa103.qa.suse.de s390qa103</name>
+          <name>s390qa104.qa.suse.de s390qa104</name>
         </names>
       </hosts_entry>
       <hosts_entry t="map">
@@ -453,7 +441,7 @@
     </dhcp_options>
     <dns t="map">
       <dhcp_hostname t="boolean">true</dhcp_hostname>
-      <hostname>s390qa103.qa.suse.de</hostname>
+      <hostname>s390qa104.qa.suse.de</hostname>
       <nameservers t="list">
         <nameserver>10.160.0.1</nameserver>
       </nameservers>
@@ -465,11 +453,10 @@
     <interfaces t="list">
       <interface t="map">
         <bootproto>static</bootproto>
-        <ipaddr>10.162.42.103</ipaddr>
+        <ipaddr>10.162.42.104</ipaddr>
         <name>eth0</name>
         <prefixlen>20</prefixlen>
         <startmode>auto</startmode>
-        <zone>public</zone>
       </interface>
     </interfaces>
     <ipv6 t="boolean">true</ipv6>
@@ -622,7 +609,7 @@
     <hibernate_system>active_console</hibernate_system>
     <kernel.sysrq>184</kernel.sysrq>
     <lsm_select>apparmor</lsm_select>
-    <mandatory_services>secure</mandatory_services>
+    <mandatory_services>insecure</mandatory_services>
     <net.ipv4.ip_forward>0</net.ipv4.ip_forward>
     <net.ipv4.tcp_syncookies>0</net.ipv4.tcp_syncookies>
     <net.ipv6.conf.all.forwarding>0</net.ipv6.conf.all.forwarding>
@@ -660,7 +647,6 @@
         <service>cio_ignore</service>
         <service>cpi</service>
         <service>cron</service>
-        <service>firewalld</service>
         <service>wickedd-auto4</service>
         <service>wickedd-dhcp4</service>
         <service>wickedd-dhcp6</service>
@@ -697,7 +683,6 @@
       <package>wicked</package>
       <package>snapper</package>
       <package>sle-module-server-applications-release</package>
-      <package>sle-module-development-tools-release</package>
       <package>sle-module-desktop-applications-release</package>
       <package>sle-module-basesystem-release</package>
       <package>openssh</package>
@@ -706,7 +691,6 @@
       <package>icewm</package>
       <package>grub2</package>
       <package>glibc</package>
-      <package>firewalld</package>
       <package>e2fsprogs</package>
       <package>btrfsprogs</package>
       <package>autoyast2</package>
@@ -740,6 +724,13 @@
     <addons t="list">
       <addon t="map">
         <arch>s390x</arch>
+        <name>sle-module-basesystem</name>
+        <reg_code/>
+        <release_type>nil</release_type>
+        <version>15.4</version>
+      </addon>
+      <addon t="map">
+        <arch>s390x</arch>
         <name>sle-module-desktop-applications</name>
         <reg_code/>
         <release_type>nil</release_type>
@@ -748,20 +739,6 @@
       <addon t="map">
         <arch>s390x</arch>
         <name>sle-module-server-applications</name>
-        <reg_code/>
-        <release_type>nil</release_type>
-        <version>15.4</version>
-      </addon>
-      <addon t="map">
-        <arch>s390x</arch>
-        <name>sle-module-basesystem</name>
-        <reg_code/>
-        <release_type>nil</release_type>
-        <version>15.4</version>
-      </addon>
-      <addon t="map">
-        <arch>s390x</arch>
-        <name>sle-module-development-tools</name>
         <reg_code/>
         <release_type>nil</release_type>
         <version>15.4</version>
@@ -792,9 +769,9 @@
     <user t="map">
       <authorized_keys t="list"/>
       <encrypted t="boolean">true</encrypted>
-      <fullname>test</fullname>
+      <fullname>bernhard</fullname>
       <gid>100</gid>
-      <home>/home/test</home>
+      <home>/home/bernhard</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
         <expire/>
@@ -806,161 +783,8 @@
       </password_settings>
       <shell>/bin/bash</shell>
       <uid>1000</uid>
-      <user_password>$6$5/d3hUWiRoFY/8fQ$iJmaTpBG.Z4Ic2fgCKwyT1qQqzFuIJ0ssOrGWNUqKJJuMe5YGJ7SWv8MEAzi.cgvhXXJ61nIDqIBmUrKFT8D71</user_password>
-      <username>test</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>NFS statd daemon</fullname>
-      <gid>65533</gid>
-      <home>/var/lib/nfs</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>490</uid>
-      <user_password>!</user_password>
-      <username>statd</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>bin</fullname>
-      <gid>1</gid>
-      <home>/bin</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>1</uid>
-      <user_password>!</user_password>
-      <username>bin</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>PulseAudio daemon</fullname>
-      <gid>479</gid>
-      <home>/var/lib/pulseaudio</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>494</uid>
-      <user_password>!</user_password>
-      <username>pulse</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>Mailer daemon</fullname>
-      <gid>498</gid>
-      <home>/var/spool/clientmqueue</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>498</uid>
-      <user_password>!</user_password>
-      <username>mail</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>user for VNC</fullname>
-      <gid>468</gid>
-      <home>/var/lib/empty</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>484</uid>
-      <user_password>!</user_password>
-      <username>vnc</username>
-    </user>
-    <user t="map">
-      <authorized_keys t="list"/>
-      <encrypted t="boolean">true</encrypted>
-      <fullname>root</fullname>
-      <gid>0</gid>
-      <home>/root</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/bin/bash</shell>
-      <uid>0</uid>
-      <user_password>$6$pu0btvcV/1DQ6PtQ$P8V3JSTqaUWoZfiDlUdRx9w1lpuBQFD55khDHYXEjSpoljidAejpFQ6DqLeTJ2MJxdRVTgtRsSkV9/KalElv1/</user_password>
-      <username>root</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>Gnome Display Manager daemon</fullname>
-      <gid>469</gid>
-      <home>/var/lib/gdm</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>485</uid>
-      <user_password>!</user_password>
-      <username>gdm</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>SSH daemon</fullname>
-      <gid>472</gid>
-      <home>/var/lib/sshd</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>488</uid>
-      <user_password>!</user_password>
-      <username>sshd</username>
+      <user_password>$6$EuNBWd8dt9ElrtNR$JN44RfnCMmCt968qH8nA04bdyuPoyUJboYjEVzplYaMS/tAO4J4DmBvORnaryldAjyniEmNZ7P88lNRywHgXQ/</user_password>
+      <username>bernhard</username>
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
@@ -983,9 +807,9 @@
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>Manual pages viewer</fullname>
-      <gid>62</gid>
-      <home>/var/lib/empty</home>
+      <fullname>bin</fullname>
+      <gid>1</gid>
+      <home>/bin</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
         <expire/>
@@ -996,9 +820,28 @@
         <warn/>
       </password_settings>
       <shell>/sbin/nologin</shell>
-      <uid>13</uid>
+      <uid>1</uid>
       <user_password>!</user_password>
-      <username>man</username>
+      <username>bin</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>Printing daemon</fullname>
+      <gid>488</gid>
+      <home>/var/spool/lpd</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>497</uid>
+      <user_password>!</user_password>
+      <username>lp</username>
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
@@ -1021,25 +864,6 @@
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>User for D-Bus</fullname>
-      <gid>499</gid>
-      <home>/run/dbus</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/usr/bin/false</shell>
-      <uid>499</uid>
-      <user_password>!</user_password>
-      <username>messagebus</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
       <fullname>systemd Core Dumper</fullname>
       <gid>465</gid>
       <home>/</home>
@@ -1059,9 +883,9 @@
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>User for GeoClue D-Bus service</fullname>
-      <gid>482</gid>
-      <home>/var/lib/srvGeoClue</home>
+      <fullname>Manual pages viewer</fullname>
+      <gid>62</gid>
+      <home>/var/lib/empty</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
         <expire/>
@@ -1072,85 +896,9 @@
         <warn/>
       </password_settings>
       <shell>/sbin/nologin</shell>
-      <uid>496</uid>
+      <uid>13</uid>
       <user_password>!</user_password>
-      <username>srvGeoClue</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>Chrony Daemon</fullname>
-      <gid>478</gid>
-      <home>/var/lib/chrony</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/bin/false</shell>
-      <uid>493</uid>
-      <user_password>!</user_password>
-      <username>chrony</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>user account for the brltty daemon</fullname>
-      <gid>100</gid>
-      <home>/var/lib/brltty</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/bin/false</shell>
-      <uid>486</uid>
-      <user_password>!</user_password>
-      <username>brltty</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>Daemon</fullname>
-      <gid>2</gid>
-      <home>/sbin</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/sbin/nologin</shell>
-      <uid>2</uid>
-      <user_password>!</user_password>
-      <username>daemon</username>
-    </user>
-    <user t="map">
-      <encrypted t="boolean">true</encrypted>
-      <fullname>RealtimeKit</fullname>
-      <gid>470</gid>
-      <home>/proc</home>
-      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
-      <password_settings t="map">
-        <expire/>
-        <flag/>
-        <inact/>
-        <max/>
-        <min/>
-        <warn/>
-      </password_settings>
-      <shell>/bin/false</shell>
-      <uid>487</uid>
-      <user_password>!</user_password>
-      <username>rtkit</username>
+      <username>man</username>
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
@@ -1192,9 +940,28 @@
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>Printing daemon</fullname>
-      <gid>488</gid>
-      <home>/var/spool/lpd</home>
+      <fullname>Chrony Daemon</fullname>
+      <gid>478</gid>
+      <home>/var/lib/chrony</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/false</shell>
+      <uid>493</uid>
+      <user_password>!</user_password>
+      <username>chrony</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>NFS statd daemon</fullname>
+      <gid>65533</gid>
+      <home>/var/lib/nfs</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
         <expire/>
@@ -1205,14 +972,52 @@
         <warn/>
       </password_settings>
       <shell>/sbin/nologin</shell>
-      <uid>497</uid>
+      <uid>490</uid>
       <user_password>!</user_password>
-      <username>lp</username>
+      <username>statd</username>
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>user for rpcbind</fullname>
-      <gid>65534</gid>
+      <fullname>User for D-Bus</fullname>
+      <gid>499</gid>
+      <home>/run/dbus</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/usr/bin/false</shell>
+      <uid>499</uid>
+      <user_password>!</user_password>
+      <username>messagebus</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>user account for the brltty daemon</fullname>
+      <gid>100</gid>
+      <home>/var/lib/brltty</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/false</shell>
+      <uid>486</uid>
+      <user_password>!</user_password>
+      <username>brltty</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>user for VNC</fullname>
+      <gid>468</gid>
       <home>/var/lib/empty</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
@@ -1224,9 +1029,105 @@
         <warn/>
       </password_settings>
       <shell>/sbin/nologin</shell>
-      <uid>492</uid>
+      <uid>484</uid>
       <user_password>!</user_password>
-      <username>rpc</username>
+      <username>vnc</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>Gnome Display Manager daemon</fullname>
+      <gid>469</gid>
+      <home>/var/lib/gdm</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>485</uid>
+      <user_password>!</user_password>
+      <username>gdm</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>Mailer daemon</fullname>
+      <gid>498</gid>
+      <home>/var/spool/clientmqueue</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>498</uid>
+      <user_password>!</user_password>
+      <username>mail</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>Postfix Daemon</fullname>
+      <gid>51</gid>
+      <home>/var/spool/postfix</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>51</uid>
+      <user_password>!</user_password>
+      <username>postfix</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>Daemon</fullname>
+      <gid>2</gid>
+      <home>/sbin</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>2</uid>
+      <user_password>!</user_password>
+      <username>daemon</username>
+    </user>
+    <user t="map">
+      <authorized_keys t="list"/>
+      <encrypted t="boolean">true</encrypted>
+      <fullname>root</fullname>
+      <gid>0</gid>
+      <home>/root</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/bash</shell>
+      <uid>0</uid>
+      <user_password>$6$q.t3M3WBkGwZ/Yc5$XEpmfcPFOYKzYvEehLcjoL9L5rE4CdYE0k6wMIk.tFwfBiPzMQBnA8KPO7e.rJ3w0i/P7nW0a2SabLgzn2Idz.</user_password>
+      <username>root</username>
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
@@ -1249,9 +1150,9 @@
     </user>
     <user t="map">
       <encrypted t="boolean">true</encrypted>
-      <fullname>Postfix Daemon</fullname>
-      <gid>51</gid>
-      <home>/var/spool/postfix</home>
+      <fullname>SSH daemon</fullname>
+      <gid>472</gid>
+      <home>/var/lib/sshd</home>
       <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
       <password_settings t="map">
         <expire/>
@@ -1262,9 +1163,85 @@
         <warn/>
       </password_settings>
       <shell>/sbin/nologin</shell>
-      <uid>51</uid>
+      <uid>488</uid>
       <user_password>!</user_password>
-      <username>postfix</username>
+      <username>sshd</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>RealtimeKit</fullname>
+      <gid>470</gid>
+      <home>/proc</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/bin/false</shell>
+      <uid>487</uid>
+      <user_password>!</user_password>
+      <username>rtkit</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>PulseAudio daemon</fullname>
+      <gid>479</gid>
+      <home>/var/lib/pulseaudio</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>494</uid>
+      <user_password>!</user_password>
+      <username>pulse</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>User for GeoClue D-Bus service</fullname>
+      <gid>482</gid>
+      <home>/var/lib/srvGeoClue</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>496</uid>
+      <user_password>!</user_password>
+      <username>srvGeoClue</username>
+    </user>
+    <user t="map">
+      <encrypted t="boolean">true</encrypted>
+      <fullname>user for rpcbind</fullname>
+      <gid>65534</gid>
+      <home>/var/lib/empty</home>
+      <home_btrfs_subvolume t="boolean">false</home_btrfs_subvolume>
+      <password_settings t="map">
+        <expire/>
+        <flag/>
+        <inact/>
+        <max/>
+        <min/>
+        <warn/>
+      </password_settings>
+      <shell>/sbin/nologin</shell>
+      <uid>492</uid>
+      <user_password>!</user_password>
+      <username>rpc</username>
     </user>
   </users>
   <zfcp t="map">
