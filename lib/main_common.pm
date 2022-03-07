@@ -157,6 +157,7 @@ sub set_defaults_for_username_and_password {
             $testapi::username = "bernhard";
         }
         $testapi::password = "nots3cr3t";
+        
     }
 
     $testapi::username = get_var("USERNAME") if get_var("USERNAME");
