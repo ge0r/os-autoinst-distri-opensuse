@@ -17,7 +17,8 @@ use testapi;
 sub run {
     my $self = shift;
     assert_script_run 'rm -f /root/autoinst.xml';
-    my $module_name = y2_module_consoletest::yast2_console_exec(yast2_module => 'clone_system', yast2_opts => '--ncurses');
+    # TODO maybe send args=>"modules target=compact"
+    my $module_name = y2_module_consoletest::yast2_console_exec(yast2_module => 'clone_system', yast2_opts => '--ncurses', args => 'modules target=compact');
     if (check_screen 'autoyast2-install-accept', 10) {
         send_key 'alt-i';    # confirm package installation
     }
