@@ -1,34 +1,6 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE profile>
 <profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
-  <add-on t="map">
-    <add_on_others t="list">
-      <listentry t="map">
-        <alias>SLES15-SP4-15.4-0</alias>
-        <media_url>cd:/?devices=/dev/disk/by-id/scsi-0QEMU_QEMU_CD-ROM_cd0</media_url>
-        <name>SLES15-SP4-15.4-0</name>
-        <priority t="integer">99</priority>
-        <product_dir>/</product_dir>
-      </listentry>
-    </add_on_others>
-    <add_on_products t="list">
-      <listentry t="map">
-        <media_url>http://openqa.suse.de/assets/repo/SLE-15-SP4-Module-Basesystem-POOL-x86_64-Build116.4-Media1/</media_url>
-        <product>SLE-Module-Basesystem15-SP4-Pool</product>
-        <product_dir/>
-      </listentry>
-      <listentry t="map">
-        <media_url>http://openqa.suse.de/assets/repo/SLE-15-SP4-Module-Desktop-Applications-POOL-x86_64-Build116.4-Media1/</media_url>
-        <product>SLE-Module-Desktop-Applications15-SP4-Pool</product>
-        <product_dir/>
-      </listentry>
-      <listentry t="map">
-        <media_url>http://openqa.suse.de/assets/repo/SLE-15-SP4-Module-Server-Applications-POOL-x86_64-Build116.4-Media1/</media_url>
-        <product>SLE-Module-Server-Applications15-SP4-Pool</product>
-        <product_dir/>
-      </listentry>
-    </add_on_products>
-  </add-on>
   <bootloader t="map">
     <global t="map">
       <cpu_mitigations>auto</cpu_mitigations>
@@ -360,32 +332,32 @@
   <suse_register t="map">
     <addons t="list">
       <addon t="map">
-        <arch>x86_64</arch>
+        <arch>{{ARCH}}</arch>
         <name>sle-module-desktop-applications</name>
-        <reg_code/>
+        <reg_code>{{SCC_REGCODE}}</reg_code>
         <release_type>nil</release_type>
-        <version>15.4</version>
+        <version>{{VERSION}}</version>
       </addon>
       <addon t="map">
-        <arch>x86_64</arch>
+        <arch>{{ARCH}}</arch>
         <name>sle-module-server-applications</name>
-        <reg_code/>
+        <reg_code>{{SCC_REGCODE}}</reg_code>
         <release_type>nil</release_type>
-        <version>15.4</version>
+        <version>{{VERSION}}</version>
       </addon>
       <addon t="map">
-        <arch>x86_64</arch>
+        <arch>{{ARCH}}</arch>
         <name>sle-module-basesystem</name>
-        <reg_code/>
+        <reg_code>{{SCC_REGCODE}}</reg_code>
         <release_type>nil</release_type>
-        <version>15.4</version>
+        <version>{{VERSION}}</version>
       </addon>
     </addons>
     <do_registration t="boolean">true</do_registration>
     <email/>
     <install_updates t="boolean">false</install_updates>
-    <reg_code>INTERNAL-USE-ONLY-3fc7-498e</reg_code>
-    <reg_server>http://all-116.4.proxy.scc.suse.de</reg_server>
+    <reg_code>{{SCC_REGCODE}}</reg_code>
+    <reg_server>{{SCC_URL}}</reg_server>
     <slp_discovery t="boolean">false</slp_discovery>
   </suse_register>
   <tftp-server t="map">
