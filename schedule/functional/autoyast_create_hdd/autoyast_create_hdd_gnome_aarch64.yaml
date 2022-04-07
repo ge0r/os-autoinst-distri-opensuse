@@ -2,8 +2,7 @@ name: autoyast_create_hdd_gnome
 description:    >
   Here description
 vars:
-#   AUTOYAST_PREPARE_PROFILE: 1
-  AUTOYAST: autoyast_sle15/create_hdd/create_hdd_gnome.xml
+  AUTOYAST: autoyast_sle15/create_hdd/create_hdd_gnome_aarch64.xml
   DESKTOP: gnome
 schedule:
   - autoyast/prepare_profile
