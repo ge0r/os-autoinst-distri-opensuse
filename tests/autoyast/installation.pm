@@ -28,7 +28,7 @@ use base 'y2_installbase';
 use testapi;
 use Utils::Architectures;
 use utils;
-use power_action_utils 'prepare_system_shutdown';
+use power_action_utils qw(prepare_system_shutdown assert_shutdown_and_restore_system);
 use version_utils qw(is_sle is_microos is_released is_upgrade);
 use main_common 'opensuse_welcome_applicable';
 use x11utils 'untick_welcome_on_next_startup';
@@ -328,6 +328,11 @@ sub run {
     if (is_pvm()) {
         prepare_system_shutdown;
         reconnect_mgmt_console(timeout => 500);
+    }
+    if ((is_xen_hvm()) || (is_xen_pv())){
+        record_info("XEN_VM");
+        prepare_system_shutdown;
+        assert_shutdown_and_restore_system('reboot', 180);
     }
 
     # If we didn't see pxe, the reboot is going now
