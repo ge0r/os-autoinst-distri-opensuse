@@ -30,7 +30,6 @@ use constant {
           is_svirt_except_s390x
           is_pvm
           is_xen_pv
-          is_xen_hvm
           is_ipmi
           is_qemu
           is_svirt
@@ -150,16 +149,6 @@ Returns true if the current VM runs in Xen host in paravirtual mode
 
 sub is_xen_pv {
     return check_var('VIRSH_VMM_FAMILY', 'xen') && check_var('VIRSH_VMM_TYPE', 'linux');
-}
-
-=head2 is_xen_hvm
-
-Returns true if the current instance runs in Xen host as hardware virtual machine (HVM)
-
-=cut
-
-sub is_xen_hvm {
-    return check_var('VIRSH_VMM_FAMILY', 'xen') && check_var('VIRSH_VMM_TYPE', 'hvm');
 }
 
 =head2 is_svirt_except_s390x
