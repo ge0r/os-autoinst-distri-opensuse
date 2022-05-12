@@ -85,10 +85,9 @@ sub add_test_repositories {
     @repos = split(',', $oldrepo) if ($oldrepo);
 
     for my $var (@repos) {
-        zypper_call("--no-gpg-checks ar -f $gpg -n 'TEST_$counter' $var 'TEST_$counter'");
+        zypper_call("--gpg-auto-import-keys ar -f $gpg -n 'TEST_$counter' $var 'TEST_$counter'");
         $counter++;
     }
-
     if (is_sle('=12-SP2')) {
         my $arch = get_var('ARCH');
         my $url = "http://dist.suse.de/ibs/SUSE/Updates/SLE-SERVER/12-SP2-LTSS-ERICSSON/$arch/update/";
