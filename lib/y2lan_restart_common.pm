@@ -421,7 +421,9 @@ Close yast2 lan configuration and check that it is closed successfully
 
 =cut
 sub close_yast2_lan {
+    record_info("PRESS OK");
     send_key "alt-o";    # OK=>Save&Exit
+    # wait_screen_change {send_key "alt-o"};    # OK=>Save&Exit
     wait_serial("$module_name-0", 180) || die "'yast2 lan' didn't finish";
 }
 
