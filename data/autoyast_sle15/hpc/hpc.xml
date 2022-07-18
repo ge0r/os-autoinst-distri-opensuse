@@ -819,6 +819,11 @@
       <on_demand config:type="list"/>
     </services>
   </services-manager>
+  <software>
+    <products config:type="list">
+      <product>SLE_HPC</product>
+    </products>
+  </software>
   <ssh_import>
     <copy_config config:type="boolean">false</copy_config>
     <import config:type="boolean">false</import>
