@@ -38,17 +38,17 @@ sub run {
 
     #	bootloader options and set probe foreign OS, timeout
     assert_and_click 'yast2-bootloader_bootloader-options';
-    assert_screen 'yast2-bootloader_bootloader-options-switched';
+    record_soft_failure('bsc#1191112 - Resizing window as workaround for YaST content not loading');
+    send_key_until_needlematch('yast2-bootloader_bootloader-options-switched', 'alt-f10', 9, 2);
     send_key 'alt-b';
     wait_still_screen 3;
     send_key 'alt-t';
     type_string '16';
 
     #	default boot section
-    for (1 .. 2) { send_key 'alt-f10' }
+    # for (1 .. 2) { send_key 'alt-f10' }
     assert_and_click 'yast2-bootloader_default-boot-section';
-    record_soft_failure('bsc#1191112 - Resizing window as workaround for YaST content not loading');
-    send_key_until_needlematch('yast2-bootloader_default-boot-section_tw', 'alt-f10', 9, 2);
+    assert_screen 'yast2-bootloader_default-boot-section_tw';
     send_key 'esc';    # Close drop down
 
     #	proctect boot loader with password
