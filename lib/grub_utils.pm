@@ -29,7 +29,7 @@ Handle grub menu after reboot
 =cut
 
 sub grub_test {
-    my $timeout = get_var('GRUB_TIMEOUT', 200);
+    my $timeout = get_var('GRUB_TIMEOUT', 500);
 
     handle_installer_medium_bootup();
     workaround_type_encrypted_passphrase;
