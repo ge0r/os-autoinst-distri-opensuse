@@ -145,6 +145,7 @@
         % foreach (values %$addons) {
             <package><%= $_->{name} %>-release</package>
         % }
+            <package>sles-ltss-release</package>
         </packages>
         <!-- end of workaround -->
     </software>
