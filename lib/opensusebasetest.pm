@@ -793,6 +793,9 @@ sub wait_grub_to_boot_on_local_disk {
     my @tags = qw(grub2 tianocore-mainmenu);
     push @tags, 'encrypted-disk-password-prompt' if (get_var('ENCRYPT'));
 
+    # Workaround for poo#118336
+    push @tags, 'displaymanager' if is_ppc64le();
+
     # Enable boot menu for x86_64 uefi workaround, see bsc#1180080 for details
     if (is_sle && get_required_var('FLAVOR') =~ /Migration/ && is_x86_64 && get_var('UEFI')) {
         if (!check_screen(\@tags, 15)) {
@@ -937,6 +940,17 @@ sub grub_select {
         } else {
             bmwqemu::fctinfo("Boot $first_menu");
             boot_grub_item($first_menu);
+        }
+    }
+    elsif (is_ppc64le && is_qemu) {
+        record_info('PPC_QEMU');
+
+        my @tags = qw(displaymanager grub2);
+        assert_screen(\@tags);
+
+        if (match_has_tag 'grub2') {
+            record_info('GRUB');
+            send_key 'ret';
         }
     }
     elsif (!get_var('S390_ZKVM')) {
