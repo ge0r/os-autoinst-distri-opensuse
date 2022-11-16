@@ -118,7 +118,8 @@ sub run {
     initiator_service_tab;
     initiator_discovered_targets_tab;
     initiator_connected_targets_tab;
-    wait_serial("yast2-iscsi-client-status-0", 180) || die "'yast2 iscsi-client ' didn't finish or exited with non-zero code";
+    wait_serial("yast2-iscsi-client-status-0", 180);
+    sleep(600);
     # logging in to a target will create a local disc device
     # it takes a moment, since udev actually handles it
     sleep 5;
