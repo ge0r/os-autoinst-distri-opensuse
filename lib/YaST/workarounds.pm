@@ -11,8 +11,10 @@ use testapi;
 use utils;
 use version_utils;
 
-
-our @EXPORT = qw(apply_workaround_bsc1204176 apply_workaround_bsc1207157);
+our @EXPORT = qw(
+  apply_workaround_bsc1204176
+  apply_workaround_bsc1207157
+);
 
 =head1 Workarounds for known issues
 
